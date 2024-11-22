@@ -5,92 +5,25 @@
 
 body{
     min-height: 100vh;
-    background-color: whitesmoke;
+    background-color:blanchedalmond
 }
-
-nav{
+.cabecalho {
     display: flex;
-    justify-content: flex-end;
-    background-color: green;
+    justify-content: space-between; 
+    align-items: center;           
+    background-color: aqua;
+    width: 100vw;
+    height: 20vh;
+    padding: 0 20px;               
 }
 
-nav ul{
-    width: 100%;
-    list-style-type: none;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
+#logo {
+    width: 500px;
+    height: auto;
 }
 
-nav li{
-    height: 60px;
-}
-
-nav li:first-child{
-    margin-right: auto;
-}
-
-nav a{
-    height: 100%;
-    padding: 0 30px;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    color: black;
-}
-
-nav a:hover{
-    color: greenyellow;
-}
-
-#sidebar{
-    position: fixed;
-    top: 0;
-    right: -100%;
-    height: 100vh;
-    width: 280px;
-    background-color: green;
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: start;
-    transition: all 1s;
-    z-index: 999;
-}
-
-.sidebar2{
-    top: 0;
-    right: -100%;
-    height: 91vh;
-    width: 280px;
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: start;
-    background-color: rgb(0, 51, 0);
-}
-
-.logo2{
-    font-size: larger;
-    padding-right: 170px;
-}
-
-.icon{
-    fill: white;
-}
-
-.logotipo{
-   font-weight: bold;
-   font-size: 1.6rem;
-}
-
-.conteudo{
-    display: flex;
-    height: 90vh;
-    background-color: white;
-    flex-direction: column;
-}
-
-.conteudo p{
-    max-width: 400px;
+#claro {
+    width: 200px;
+    height: auto;
+    margin-left: auto; 
 }

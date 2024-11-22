@@ -8,45 +8,17 @@
     <script src="MiauPlanner.js" defer></script>
 </head>
 <body>
-
-    <nav>
-        <ul class="logotipo">
-            <li><a href="#" >Logo</a></li>
-            <li><a href="#" >Home</a></li>
-            <li><a href="#" >Sobre</a></li>
-            <li><a href="#" >Contato</a></li>
-            <li id="menu">
-                <a href="#" id="darmode"> <!--Tirar a classe p ver a sidebar no computador-->
-                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg>
-                    <!--Usei o icone do codigo mostrado em sala, pois nao conseguia abrir o enviado corretamente-->
-                </a>
-            </li>
-        </ul>
-
-        <ul id="sidebar">
-            <li id="fecha">
-                <a href="#">
-                    <p class="logo2">Logo</p><svg class="icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
-                    <!--Usei o icone do codigo mostrado em sala, pois nao conseguia abrir o enviado corretamente-->
-                </a>
-            </li>
-            <div class="sidebar2">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Sobre</a></li>
-                <li><a href="#">Contato</a></li>
-            </div>
-        </ul>
-    </nav>
-
-    <div class="conteudo">
-        <h1>Lista de Tarefas</h1>
-        <div class="form">
-            <form action="#" method="get">
-                <label for="tarefas">Tarefas: </label>
-                <input type="text" id="tarefas" placeholder="Tarefas">
-            </form>
-            <button id="add">add</button>
+    <header>
+        <div class="cabecalho">
+        <img src="logo.png" alt="logo" id="logo">
+        <img src="light.png" alt="modo claro" id="claro">
         </div>
-    </div>
+    </header>
+
+    <main>
+        <input type="text" id="caixa-escrever" placeholder="Adicionar Tarefa">
+        <button id="botao">+</button>
+    </main>
+    
 </body>
 </html>
