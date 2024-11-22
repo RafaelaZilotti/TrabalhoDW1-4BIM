@@ -27,3 +27,48 @@ body{
     height: auto;
     margin-left: auto; 
 }
+#caixa-escrever{
+    width: 300px;
+    height: 40px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+.tarefas{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 100px;
+}
+.adicionar{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+}
+#botao-adicionar{
+    width: 40px;
+    height: 40px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+.box-tarefas{
+    background-color: aqua;
+    width: 400px;
+    height: auto;
+    padding: 15px;
+    border-radius: 10px;
+}
+#titulo{
+    font-size: 50px;
+    color: rgb(255, 158, 255);
+    text-shadow: -2px 2px 4px black;
+}
+#subtitulo{
+    font-size: 10px;
+    color: black;
+}
+#pink{
+    color: pink;
+}
