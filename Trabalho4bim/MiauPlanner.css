@@ -1,20 +1,21 @@
-*{
+* {
     padding: 0;
     margin: 0;
 }
 
-body{
+body {
     min-height: 100vh;
-    background-color:blanchedalmond
+    background-color: blanchedalmond;
 }
+
 .cabecalho {
     display: flex;
-    justify-content: space-between; 
-    align-items: center;           
+    justify-content: space-between;
+    align-items: center;
     background-color: aqua;
     width: 100vw;
     height: 20vh;
-    padding: 0 20px;               
+    padding: 0 20px;
 }
 
 #logo {
@@ -25,50 +26,142 @@ body{
 #claro {
     width: 200px;
     height: auto;
-    margin-left: auto; 
+    margin-left: auto;
 }
-#caixa-escrever{
+
+#caixa-escrever {
     width: 300px;
     height: 40px;
     border: 1px solid black;
     border-radius: 10px;
 }
-.tarefas{
+
+.tarefas {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     margin-top: 100px;
 }
-.adicionar{
+
+.adicionar {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
     gap: 2px;
 }
-#botao-adicionar{
+
+#botao-adicionar {
     width: 40px;
     height: 40px;
     border: 1px solid black;
     border-radius: 10px;
 }
-.box-tarefas{
+
+.box-tarefas {
     background-color: aqua;
     width: 400px;
     height: auto;
     padding: 15px;
     border-radius: 10px;
 }
-#titulo{
-    font-size: 50px;
+
+#titulo {
+    font-size: 70px;
     color: rgb(255, 158, 255);
     text-shadow: -2px 2px 4px black;
 }
-#subtitulo{
-    font-size: 10px;
+
+#subtitulo {
+    font-size: 20px;
     color: black;
 }
-#pink{
+
+#pink {
     color: pink;
+}
+
+/* Estilo para as tarefas */
+ul {
+    list-style-type: none;
+}
+
+li.tarefa {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px 0;
+    padding: 5px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    height: auto; /* Ajusta a altura para o conteúdo */
+    text-align: center;
+}
+
+li.tarefa span {
+    word-wrap: break-word; /* Permite que o texto quebre a linha */
+    max-width: 250px; /* Limita o tamanho máximo da largura para que o texto ocupe mais de uma linha */
+    display: inline-block; /* Permite que o texto seja tratado como bloco dentro do flex */
+}
+
+.div-edicao {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+.input-edicao {
+    flex-grow: 1;
+    padding: 5px;
+    font-size: 1rem;
+    border-radius: 5px;
+}
+
+.botao-salvar-edicao {
+    background-color: #ff72e0;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 1rem;
+    border-radius: 5px;
+}
+
+.botao-salvar-edicao:hover {
+    background-color: #ff71ff;
+}
+
+/* Estilo para tarefas concluídas */
+li.completed span {
+    text-decoration: line-through;
+    color: gray;
+}
+
+li.completed {
+    background-color: #d3ffd3;
+}
+
+/* Hover para botões de editar e deletar */
+button:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+/* Estilo para checkbox redondo */
+.checkbox-tarefa {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    appearance: none;
+    border: 2px solid black;
+    background-color: white;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.checkbox-tarefa:checked {
+    background-color: #fd76ff;
+    border-color: #fa95ff;
 }
