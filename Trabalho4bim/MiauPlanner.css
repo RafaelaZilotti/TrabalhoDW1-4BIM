@@ -1,11 +1,14 @@
+/* Reset padrão */
 * {
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
 }
 
 body {
     min-height: 100vh;
     background-color: blanchedalmond;
+    font-family: Arial, sans-serif;
 }
 
 .cabecalho {
@@ -29,41 +32,39 @@ body {
     margin-left: auto;
 }
 
-#caixa-escrever {
-    width: 300px;
-    height: 40px;
-    border: 1px solid black;
-    border-radius: 10px;
-}
-
 .tarefas {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin-top: 100px;
+    margin-top: 50px;
 }
 
-.adicionar {
+.box-tarefas {
+    background-color: aqua;
+    width: 400px;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+#adicionar {
     display: flex;
-    flex-direction: row;
-    align-items: center;
     justify-content: center;
-    gap: 2px;
+    gap: 10px;
+}
+
+#caixa-escrever {
+    width: 300px;
+    height: 40px;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 5px;
 }
 
 #botao-adicionar {
     width: 40px;
     height: 40px;
     border: 1px solid black;
-    border-radius: 10px;
-}
-
-.box-tarefas {
-    background-color: aqua;
-    width: 400px;
-    height: auto;
-    padding: 15px;
     border-radius: 10px;
 }
 
@@ -82,55 +83,68 @@ body {
     color: pink;
 }
 
-/* Estilo para as tarefas */
+/* Estilos para tarefas */
 ul {
     list-style-type: none;
+    padding: 0;
 }
 
 li.tarefa {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
     margin: 10px 0;
-    padding: 5px;
+    padding: 10px;
     border-radius: 10px;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-    width: 300px;
-    height: auto; /* Ajusta a altura para o conteúdo */
-    text-align: center;
+    background-color: white;
+    width: 100%;
 }
 
 li.tarefa span {
-    word-wrap: break-word; /* Permite que o texto quebre a linha */
-    max-width: 250px; /* Limita o tamanho máximo da largura para que o texto ocupe mais de uma linha */
-    display: inline-block; /* Permite que o texto seja tratado como bloco dentro do flex */
+    display: inline-block;
+    max-width: calc(35ch);
+    word-break: break-word;
+    text-align: center;
+    margin-right: auto;
 }
 
-.div-edicao {
-    margin-top: 10px;
+div.botoes {
     display: flex;
-    gap: 10px;
+    flex-direction: column;
+    gap: 5px; /* Espaçamento entre os botões */
 }
 
-.input-edicao {
-    flex-grow: 1;
-    padding: 5px;
-    font-size: 1rem;
+div.botoes button {
+    padding: 5px 10px;
+    font-size: 0.9rem;
+    border: none;
     border-radius: 5px;
-}
-
-.botao-salvar-edicao {
     background-color: #ff72e0;
     color: white;
-    border: none;
-    padding: 5px 10px;
     cursor: pointer;
-    font-size: 1rem;
-    border-radius: 5px;
+    text-align: center;
 }
 
-.botao-salvar-edicao:hover {
+div.botoes button:hover {
     background-color: #ff71ff;
+}
+
+.checkbox-tarefa {
+    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    appearance: none;
+    border: 2px solid black;
+    background-color: white;
+    cursor: pointer;
+}
+
+.checkbox-tarefa:checked {
+    background-color: #fd76ff;
+    border-color: #fa95ff;
 }
 
 /* Estilo para tarefas concluídas */
@@ -141,27 +155,4 @@ li.completed span {
 
 li.completed {
     background-color: #d3ffd3;
-}
-
-/* Hover para botões de editar e deletar */
-button:hover {
-    cursor: pointer;
-    opacity: 0.8;
-}
-
-/* Estilo para checkbox redondo */
-.checkbox-tarefa {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    appearance: none;
-    border: 2px solid black;
-    background-color: white;
-    cursor: pointer;
-    margin-right: 10px;
-}
-
-.checkbox-tarefa:checked {
-    background-color: #fd76ff;
-    border-color: #fa95ff;
 }

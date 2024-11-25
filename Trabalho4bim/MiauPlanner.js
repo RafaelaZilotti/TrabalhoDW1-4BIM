@@ -1,74 +1,78 @@
-const tarefalista = window.document.getElementById("caixa-escrever");
-const tarefaescrever = window.document.getElementById("botao-adicionar");
-const listaTarefas = document.createElement("ul");
-document.querySelector('.box-tarefas').appendChild(listaTarefas);
+const tarefalista = document.getElementById("caixa-escrever");
+const botaoAdicionar = document.getElementById("botao-adicionar");
+const listaTarefas = document.getElementById("lista-tarefas");
 
-function somatarefa() {
-    const tarefatexto = tarefalista.value.trim();
-    if (tarefatexto !== "") {
+// Adicionar uma nova tarefa
+function adicionarTarefa() {
+    const textoTarefa = tarefalista.value.trim(); // Remove espaços no início/fim
+    if (textoTarefa) {
         const li = document.createElement("li");
         li.classList.add("tarefa");
+        // Adiciona o conteúdo da tarefa
         li.innerHTML = `
-        <input type="checkbox" class="checkbox-tarefa" onChange="marcarConcluida(this)">
-        <span>${tarefatexto}</span>
-        <button class="botao-editar" onClick="mostrarCaixaEdicao(this)">editar</button>
-        <button class="botao-deletar" onClick="deletarTarefa(this)">remover</button>
+            <input type="checkbox" class="checkbox-tarefa">
+            <span>${textoTarefa}</span>
+            <div class="botoes">
+                <button class="botao-editar">✏️</button>
+                <button class="botao-remover">🗑️</button>
+            </div>
         `;
+
+        // Adiciona evento para marcar como concluída
+        li.querySelector(".checkbox-tarefa").addEventListener("change", (e) => {
+            marcarConcluida(e.target);
+        });
+
+        // Adiciona evento para o botão editar
+        li.querySelector(".botao-editar").addEventListener("click", (e) => {
+            editarTarefa(e.target);
+        });
+
+        // Adiciona evento para o botão remover
+        li.querySelector(".botao-remover").addEventListener("click", (e) => {
+            removerTarefa(e.target);
+        });
+
+        // Adiciona o item na lista
         listaTarefas.appendChild(li);
-        tarefalista.value = ""; 
+        tarefalista.value = ""; // Limpa o campo de entrada
+    } else {
+        alert("A tarefa não pode estar vazia!");
     }
 }
 
-function mostrarCaixaEdicao(botao) {
-    const li = botao.parentElement;
+// Editar uma tarefa existente
+function editarTarefa(botao) {
+    const li = botao.closest("li");
     const span = li.querySelector("span");
-    const divEdicao = document.createElement("div");
-    divEdicao.classList.add("div-edicao");
-
-    divEdicao.innerHTML = `
-        <input type="text" class="input-edicao" value="${span.innerText}">
-        <button class="botao-salvar-edicao">salvar</button>
-    `;
-    
-    // Esconde os botões de editar e remover
-    const botoes = li.querySelectorAll('button');
-    botoes.forEach(button => button.style.display = 'none');
-
-    li.replaceChild(divEdicao, span);
-
-    divEdicao.querySelector(".botao-salvar-edicao").addEventListener("click", function () {
-        const novoTexto = divEdicao.querySelector(".input-edicao").value.trim();
-        if (novoTexto) {
-            const novoSpan = document.createElement("span");
-            novoSpan.innerText = novoTexto;
-            li.replaceChild(novoSpan, divEdicao);
-
-            // Mostra os botões de editar e remover novamente
-            botoes.forEach(button => button.style.display = 'inline-block');
-        }
-    });
+    const novoTexto = prompt("Edite a tarefa:", span.textContent);
+    if (novoTexto !== null && novoTexto.trim() !== "") {
+        span.textContent = novoTexto.trim();
+    }
 }
 
+// Marcar tarefa como concluída
 function marcarConcluida(checkbox) {
-    const li = checkbox.parentElement;
+    const li = checkbox.closest("li");
     if (checkbox.checked) {
-        li.querySelector("span").style.textDecoration = "line-through"; 
         li.classList.add("completed");
     } else {
-        li.querySelector("span").style.textDecoration = "none"; 
         li.classList.remove("completed");
     }
 }
 
-function deletarTarefa(botao) {
-    const li = botao.parentElement;
-    li.remove(); 
+// Remover uma tarefa
+function removerTarefa(botao) {
+    const li = botao.closest("li");
+    li.remove();
 }
 
-tarefaescrever.addEventListener("click", somatarefa);
+// Adicionar evento ao botão de adicionar
+botaoAdicionar.addEventListener("click", adicionarTarefa);
 
+// Adicionar evento ao pressionar "Enter" no campo de entrada
 tarefalista.addEventListener("keypress", (event) => {
     if (event.key === "Enter") {
-        somatarefa(); 
+        adicionarTarefa();
     }
 });
