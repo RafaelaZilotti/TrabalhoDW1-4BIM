@@ -7,7 +7,7 @@
 
 body {
     min-height: 100vh;
-    background-color: blanchedalmond;
+    background-color:antiquewhite;
     font-family: Arial, sans-serif;
 }
 
@@ -15,7 +15,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: aqua;
+    background-color: rgb(153, 255, 255);
     width: 100vw;
     height: 20vh;
     padding: 0 20px;
@@ -41,10 +41,11 @@ body {
 }
 
 .box-tarefas {
-    background-color: aqua;
+    background-color:rgb(153, 255, 255);
     width: 400px;
     padding: 15px;
     border-radius: 10px;
+    margin-top: 20px;
 }
 
 #adicionar {
@@ -56,7 +57,7 @@ body {
 #caixa-escrever {
     width: 300px;
     height: 40px;
-    border: 1px solid black;
+    border: 1px solid rgb(131, 27, 89);
     border-radius: 10px;
     padding: 5px;
 }
@@ -64,23 +65,24 @@ body {
 #botao-adicionar {
     width: 40px;
     height: 40px;
-    border: 1px solid black;
+    border: 1px solid rgb(131, 27, 89);
     border-radius: 10px;
+    background-color:rgb(253, 187, 226);
 }
 
 #titulo {
     font-size: 70px;
-    color: rgb(255, 158, 255);
+    color:  rgb(255, 107, 193);
     text-shadow: -2px 2px 4px black;
 }
 
 #subtitulo {
     font-size: 20px;
-    color: black;
+    color: rgb(131, 27, 89);
 }
 
 #pink {
-    color: pink;
+    color: rgb(255, 107, 193);
 }
 
 /* Estilos para tarefas */
@@ -121,7 +123,7 @@ div.botoes button {
     font-size: 0.9rem;
     border: none;
     border-radius: 5px;
-    background-color: #ff72e0;
+    background-color: rgb(255, 158, 215);
     color: white;
     cursor: pointer;
     text-align: center;
@@ -137,7 +139,7 @@ div.botoes button:hover {
     height: 20px;
     border-radius: 50%;
     appearance: none;
-    border: 1px solid black;
+    border: 1px solid rgb(131, 27, 89);
     background-color: white;
     cursor: pointer;
 }
@@ -156,3 +158,41 @@ li.completed span {
 li.completed {
     background-color: #d3ffd3;
 }
+/*Contatos*/
+#sidebar{
+    position: fixed;
+    top: 0;
+    right: 0%;
+    height: 100vh;
+    width: 280px;
+    background-color: rgb(255, 0, 0);
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    transition: all 1s;
+    z-index: 999;
+}
+
+.sidebar2{
+    top: 0;
+    right: 0%;
+    height: 91vh;
+    width: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    background-color: rgb(255, 0, 0);
+}
+
+.logo2{
+    font-size: larger;
+    padding-right: 170px;
+}
+
+.icon{
+    fill: white;
+}
+
+/*Contatos acaba aqui*/

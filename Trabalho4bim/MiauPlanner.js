@@ -76,3 +76,20 @@ tarefalista.addEventListener("keypress", (event) => {
         adicionarTarefa();
     }
 });
+
+const menu = document.querySelector("#menu")
+const fecha = document.querySelector("#fecha")
+const sidebar = document.querySelector("#sidebar")
+
+document.addEventListener("keydown",mostraSidebar)
+fecha.addEventListener("click",fechaSidebar)
+
+function mostraSidebar(){
+    if(event.ctrlKey && event.key === 'h'){
+        sidebar.style.right = "0"
+    }
+}
+
+function fechaSidebar(){
+    sidebar.style.right = "-100%"
+}
