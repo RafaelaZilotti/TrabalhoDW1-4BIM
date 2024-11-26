@@ -77,19 +77,41 @@ tarefalista.addEventListener("keypress", (event) => {
     }
 });
 
-const menu = document.querySelector("#menu")
-const fecha = document.querySelector("#fecha")
-const sidebar = document.querySelector("#sidebar")
+//Contatos
 
-document.addEventListener("keydown",mostraSidebar)
-fecha.addEventListener("click",fechaSidebar)
+// Seleção de elementos
+const sidebar = document.getElementById('sidebar');
+const toggleButton = document.getElementById('toggleSidebar');
 
-function mostraSidebar(){
-    if(event.ctrlKey && event.key === 'h'){
-        sidebar.style.right = "0"
+// Função para alternar a visibilidade da sidebar
+function toggleSidebar() {
+    sidebar.classList.toggle('show');
+}
+
+// Evento de clique no botão de fechar
+toggleButton.addEventListener('click', toggleSidebar);
+
+// Evento de teclado para Ctrl + H
+document.addEventListener('keydown', function(event) {
+    // Verifica se Ctrl + H foi pressionado
+    if (event.ctrlKey && (event.key === 'h' || event.key === 'H')) {
+        event.preventDefault(); // Evita comportamentos padrão
+        toggleSidebar();
     }
-}
+});
+//Contatos
 
-function fechaSidebar(){
-    sidebar.style.right = "-100%"
-}
+//Modo escuro
+//const modo = document.getElementById('claro');
+
+//modo.addEventListener('click', mudarModo)
+
+//function mudarModo{
+//    let modoClaro = true
+//
+//    if(modoClaro == true){
+//        modoClaro = false
+//        //mudar css
+//    } else{
+//        //mudar css
+//    }

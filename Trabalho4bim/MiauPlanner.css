@@ -27,9 +27,13 @@ body {
 }
 
 #claro {
-    width: 200px;
+    width: 50px;
     height: auto;
     margin-left: auto;
+    background-color:transparent;
+    border: transparent;
+    font-size: 25px;
+    padding-right: 100px;
 }
 
 .tarefas {
@@ -159,40 +163,58 @@ li.completed {
     background-color: #d3ffd3;
 }
 /*Contatos*/
-#sidebar{
+#sidebar {
     position: fixed;
     top: 0;
-    right: 0%;
+    right: -100%; /* Oculto inicialmente */
+    width: 300px;
     height: 100vh;
-    width: 280px;
-    background-color: rgb(255, 0, 0);
+    background-color: #ffe6f0; /* Rosa claro */
+    box-shadow: -2px 0 5px rgba(0,0,0,0.5);
+    transition: right 0.3s ease-in-out;
+    z-index: 1000;
     display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: start;
-    transition: all 1s;
-    z-index: 999;
+    justify-content: center;
+    align-items: center;
 }
 
-.sidebar2{
-    top: 0;
-    right: 0%;
-    height: 91vh;
-    width: 280px;
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: start;
-    background-color: rgb(255, 0, 0);
+#sidebar.show {
+    right: 0; /* Visível */
 }
 
-.logo2{
-    font-size: larger;
-    padding-right: 170px;
+.sidebar-content {
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    width: 100%;
 }
 
-.icon{
-    fill: white;
+.sidebar-title {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    color: #d63384; /* Tom de rosa mais escuro */
+}
+
+.sidebar-paragraph {
+    font-size: 1em;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+/* Botão de Fechamento */
+#toggleSidebar {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 2em;
+    color: #d63384; /* Tom de rosa mais escuro */
+    cursor: pointer;
+}
+
+#toggleSidebar:hover {
+    color: #a12a64;
 }
 
 /*Contatos acaba aqui*/
