@@ -139,7 +139,155 @@ function mudarModo(){
     
         const barraDeProgresso = document.getElementById("progress-bar");
         barraDeProgresso.style.width = `${progresso}%`;
+    
+        // Animação de confetes quando todas as tarefas forem concluídas
+        if (progresso === 100) {
+            startConfetti(); // Inicia os confetes
+            setTimeout(() => {
+                stopConfetti(); // Para os confetes
+                removeConfetti(); // Remove os confetes da tela
+            }, 2500); // Após 4 segundos
+        }
     }
+    
+    // Código da animação de confetes
+    (function() {
+        const confetti = {
+            maxCount: 150,
+            speed: 2,
+            frameInterval: 15,
+            alpha: 1.0,
+            gradient: false
+        };
+    
+        let supportsAnimationFrame = window.requestAnimationFrame || window.webkitRequestAnimationFrame || 
+                                      window.mozRequestAnimationFrame || window.oRequestAnimationFrame || 
+                                      window.msRequestAnimationFrame;
+    
+        let particles = [];
+        let streamingConfetti = false;
+        let context = null;
+    
+        function resetParticle(particle, width, height) {
+            particle.color = getRandomColor(confetti.alpha);
+            particle.x = Math.random() * width;
+            particle.y = Math.random() * height - height;
+            particle.diameter = Math.random() * 10 + 5;
+            particle.tilt = Math.random() * 10 - 10;
+            particle.tiltAngleIncrement = Math.random() * 0.07 + 0.05;
+            particle.tiltAngle = Math.random() * Math.PI;
+            return particle;
+        }
+    
+        function getRandomColor(alpha) {
+            const colors = [
+                "rgba(255,182,193,", // Rosa claro
+                "rgba(221,160,221,", // Lilás médio
+                "rgba(135,206,235,", // Azul claro
+                "rgba(255,105,180,", // Rosa intenso
+                "rgba(186,85,211,",  // Roxo claro
+                "rgba(173,216,230,", // Azul pastel
+                "rgba(219,112,147,", // Rosa escuro
+                "rgba(148,0,211,",   // Roxo profundo
+                "rgba(240,248,255,"  // Azul quase branco
+            ];
+            return colors[(Math.random() * colors.length) | 0] + alpha + ")";
+        }
+    
+        function runAnimation() {
+            if (!streamingConfetti) return;
+            context.clearRect(0, 0, window.innerWidth, window.innerHeight);
+            updateParticles();
+            drawParticles();
+            requestAnimationFrame(runAnimation);
+        }
+    
+        function startConfetti() {
+            const canvas = getOrCreateCanvas();
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+    
+            while (particles.length < confetti.maxCount) {
+                particles.push(resetParticle({}, width, height));
+            }
+            streamingConfetti = true;
+            runAnimation();
+        }
+    
+        function stopConfetti() {
+            streamingConfetti = false;
+        }
+    
+        function removeConfetti() {
+            const canvas = document.getElementById("confetti-canvas");
+            if (canvas) {
+                canvas.remove(); // Remove o canvas da tela
+            }
+            particles = []; // Limpa as partículas
+            context = null; // Reseta o contexto
+        }
+    
+        function updateParticles() {
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+            for (let i = 0; i < particles.length; i++) {
+                const particle = particles[i];
+                particle.tiltAngle += particle.tiltAngleIncrement;
+                particle.x += Math.sin(particle.tiltAngle) * 2;
+                particle.y += (Math.cos(particle.tiltAngle) + particle.diameter + confetti.speed) * 0.5;
+    
+                if (particle.x > width + 20 || particle.x < -20 || particle.y > height) {
+                    if (streamingConfetti && particles.length <= confetti.maxCount) {
+                        resetParticle(particle, width, height);
+                    } else {
+                        particles.splice(i, 1);
+                        i--;
+                    }
+                }
+            }
+        }
+    
+        function drawParticles() {
+            for (const particle of particles) {
+                context.beginPath();
+                context.lineWidth = particle.diameter;
+                context.strokeStyle = particle.color;
+                context.moveTo(particle.x, particle.y);
+                context.lineTo(particle.x + particle.tilt, particle.y + particle.tilt + particle.diameter);
+                context.stroke();
+            }
+        }
+    
+        function getOrCreateCanvas() {
+            let canvas = document.getElementById("confetti-canvas");
+            if (!canvas) {
+                canvas = document.createElement("canvas");
+                canvas.id = "confetti-canvas";
+                canvas.style.position = "fixed";
+                canvas.style.top = 0;
+                canvas.style.left = 0;
+                canvas.style.zIndex = 999999;
+                canvas.style.pointerEvents = "none";
+                document.body.appendChild(canvas);
+    
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+                window.addEventListener("resize", () => {
+                    canvas.width = window.innerWidth;
+                    canvas.height = window.innerHeight;
+                });
+            }
+            context = canvas.getContext("2d");
+            return canvas;
+        }
+    
+        window.startConfetti = startConfetti;
+        window.stopConfetti = stopConfetti;
+        window.removeConfetti = removeConfetti;
+    })();
+    
+    
+    
     
     // Atualiza a barra de progresso ao marcar/desmarcar uma tarefa
     function marcarConcluida(checkbox) {
