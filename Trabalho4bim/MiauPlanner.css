@@ -218,3 +218,22 @@ li.completed {
 }
 
 /*Contatos acaba aqui*/
+/* Container da barra de progresso */
+.progress-container {
+    width: 80%;
+    background-color: rgb(255, 207, 234); /* Rosa claro */
+    border-radius: 25px;
+    height: 20px;
+    margin: 20px auto;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Barra de progresso */
+.progress-bar {
+    height: 100%;
+    width: 0%;
+    background-color: rgb(255, 107, 193); /* Rosa mais escuro */
+    transition: width 0.3s ease;
+    border-radius: 25px;
+}
