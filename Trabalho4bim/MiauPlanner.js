@@ -102,19 +102,40 @@ document.addEventListener('keydown', function(event) {
 //Contatos
 
 //Modo escuro
-//const modo = document.getElementById('claro');
-//
-//modo.addEventListener('click', mudarModo)
-//
-//function mudarModo{
-//    let modoClaro = true
-//
-//    if(modoClaro == true){
-//        modoClaro = false
-//        //mudar css
-//    } else{
-//        //mudar css
-//    }
+const modo = document.getElementById('claro');
+
+modo.addEventListener('click', mudarModo)
+
+function mudarModo{
+    const cianoAtual = getComputedStyle(document.documentElement).getPropertyValue('--ciano').trim();
+
+    if(cianoAtual === 'rgb(153, 255, 255)'){
+        document.documentElement.style.setProperty('--ciano', 'rgb( )');
+        document.documentElement.style.setProperty('--beige','rgb()');
+        document.documentElement.style.setProperty('--vinho','rgb()');
+        document.documentElement.style.setProperty('--rosa-claro','rgb()');
+        document.documentElement.style.setProperty('--rosa-medio','rgb()');
+        document.documentElement.style.setProperty('--branco','rgb()');
+        document.documentElement.style.setProperty('--lilas','rgb()');
+        document.documentElement.style.setProperty('--verde','rgb()');
+        document.documentElement.style.setProperty('--pink','rgb()');
+        document.documentElement.style.setProperty('--cinza','rgb()');
+    } else {
+        document.documentElement.style.setProperty('--ciano','rgb(153, 255, 255)');
+        document.documentElement.style.setProperty('--beige','antiquewhite');
+        document.documentElement.style.setProperty('--vinho','rgb(131, 27, 89)');
+        document.documentElement.style.setProperty('--rosa-claro','rgb(253, 187, 226)');
+        document.documentElement.style.setProperty('--rosa-medio','rgb(255, 107, 193)');
+        document.documentElement.style.setProperty('--branco','white');
+        document.documentElement.style.setProperty('--lilas','#ff71ff');
+        document.documentElement.style.setProperty('--verde','#d3ffd3');
+        document.documentElement.style.setProperty('--pink','#d63384');
+        document.documentElement.style.setProperty('--cinza','#555');
+    }
+
+
+}
+
 
     //barra de progresso
     function atualizarBarraDeProgresso() {
