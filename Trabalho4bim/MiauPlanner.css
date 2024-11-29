@@ -5,7 +5,7 @@
     box-sizing: border-box;
 }
 .a{
-    color: rgb(240, 136, 214);
+    color: rgb(251, 234, 255);
 }
 /*paleta de cores*/
 :root{
@@ -171,7 +171,7 @@ div.botoes button:hover {
 /* Estilo para tarefas concluídas */
 li.completed span {
     text-decoration: line-through;
-    color: gray;
+    color:var(--cinza);
 }
 
 li.completed {
