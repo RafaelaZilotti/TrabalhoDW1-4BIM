@@ -5,9 +5,22 @@
     box-sizing: border-box;
 }
 
+/*paleta de cores*/
+:root{
+    --ciano:rgb(153, 255, 255);
+    --beige:antiquewhite;
+    --vinho: rgb(131, 27, 89);
+    --rosa-claro:rgb(253, 187, 226);
+    --rosa-medio: rgb(255, 107, 193);
+    --branco:white;
+    --lilas:#ff71ff;
+    --verde: #d3ffd3;
+    --pink: #d63384;
+    --cinza:#555;
+}
 body {
     min-height: 100vh;
-    background-color:antiquewhite;
+    background-color:var(--beige);
     font-family: Arial, sans-serif;
 }
 
@@ -15,7 +28,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: rgb(153, 255, 255);
+    background-color: var(--ciano);
     width: 100vw;
     height: 20vh;
     padding: 0 20px;
@@ -45,7 +58,7 @@ body {
 }
 
 .box-tarefas {
-    background-color:rgb(153, 255, 255);
+    background-color:var(--ciano);
     width: 400px;
     padding: 15px;
     border-radius: 10px;
@@ -61,7 +74,7 @@ body {
 #caixa-escrever {
     width: 300px;
     height: 40px;
-    border: 1px solid rgb(131, 27, 89);
+    border: 1px solid var(--vinho);
     border-radius: 10px;
     padding: 5px;
 }
@@ -69,24 +82,24 @@ body {
 #botao-adicionar {
     width: 40px;
     height: 40px;
-    border: 1px solid rgb(131, 27, 89);
+    border: 1px solid var(--vinho);
     border-radius: 10px;
-    background-color:rgb(253, 187, 226);
+    background-color: var(--rosa-claro);
 }
 
 #titulo {
     font-size: 70px;
-    color:  rgb(255, 107, 193);
+    color: var(--rosa-medio);
     text-shadow: -2px 2px 4px black;
 }
 
 #subtitulo {
     font-size: 20px;
-    color: rgb(131, 27, 89);
+    color: var(--vinho);
 }
 
 #pink {
-    color: rgb(255, 107, 193);
+    color: var(--rosa-medio);
 }
 
 /* Estilos para tarefas */
@@ -104,7 +117,7 @@ li.tarefa {
     padding: 10px;
     border-radius: 10px;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-    background-color: white;
+    background-color: var(--branco);
     width: 100%;
 }
 
@@ -127,14 +140,14 @@ div.botoes button {
     font-size: 0.9rem;
     border: none;
     border-radius: 5px;
-    background-color: rgb(255, 158, 215);
-    color: white;
+    background-color:var(--rosa-claro);
+    color: var(--branco);
     cursor: pointer;
     text-align: center;
 }
 
 div.botoes button:hover {
-    background-color: #ff71ff;
+    background-color: var(--lilas);
 }
 
 .checkbox-tarefa {
@@ -143,14 +156,14 @@ div.botoes button:hover {
     height: 20px;
     border-radius: 50%;
     appearance: none;
-    border: 1px solid rgb(131, 27, 89);
-    background-color: white;
+    border: 1px solid var(--vinho);
+    background-color: var(--branco);
     cursor: pointer;
 }
 
 .checkbox-tarefa:checked {
-    background-color: #fd76ff;
-    border-color: #fa95ff;
+    background-color: var(--lilas);
+    border-color: var(--lilas);
 }
 
 /* Estilo para tarefas concluídas */
@@ -160,7 +173,7 @@ li.completed span {
 }
 
 li.completed {
-    background-color: #d3ffd3;
+    background-color:var(--verde)
 }
 /*Contatos*/
 #sidebar {
@@ -169,7 +182,7 @@ li.completed {
     right: -100%; /* Oculto inicialmente */
     width: 300px;
     height: 100vh;
-    background-color: #ffe6f0; /* Rosa claro */
+    background-color:var(--rosa-claro); 
     box-shadow: -2px 0 5px rgba(0,0,0,0.5);
     transition: right 0.3s ease-in-out;
     z-index: 1000;
@@ -192,13 +205,13 @@ li.completed {
 .sidebar-title {
     font-size: 1.5em;
     margin-bottom: 15px;
-    color: #d63384; /* Tom de rosa mais escuro */
+    color: var(--pink)
 }
 
 .sidebar-paragraph {
     font-size: 1em;
     margin-bottom: 10px;
-    color: #555;
+    color: var(--cinza);
 }
 
 /* Botão de Fechamento */
@@ -209,19 +222,19 @@ li.completed {
     background: none;
     border: none;
     font-size: 2em;
-    color: #d63384; /* Tom de rosa mais escuro */
+    color: var(--pink);
     cursor: pointer;
 }
 
 #toggleSidebar:hover {
-    color: #a12a64;
+    color:var(--pink);
 }
 
 /*Contatos acaba aqui*/
 /* Container da barra de progresso */
 .progress-container {
     width: 80%;
-    background-color: rgb(255, 207, 234); /* Rosa claro */
+    background-color:var(--rosa-claro);
     border-radius: 25px;
     height: 20px;
     margin: 20px auto;
@@ -233,7 +246,7 @@ li.completed {
 .progress-bar {
     height: 100%;
     width: 0%;
-    background-color: rgb(255, 107, 193); /* Rosa mais escuro */
+    background-color: var(--rosa-medio);
     transition: width 0.3s ease;
     border-radius: 25px;
 }

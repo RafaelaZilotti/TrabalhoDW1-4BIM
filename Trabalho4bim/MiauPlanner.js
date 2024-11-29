@@ -103,9 +103,9 @@ document.addEventListener('keydown', function(event) {
 
 //Modo escuro
 //const modo = document.getElementById('claro');
-
+//
 //modo.addEventListener('click', mudarModo)
-
+//
 //function mudarModo{
 //    let modoClaro = true
 //
@@ -116,55 +116,53 @@ document.addEventListener('keydown', function(event) {
 //        //mudar css
 //    }
 
-function atualizarBarraDeProgresso() {
-    const tarefas = document.querySelectorAll(".tarefa"); // Todas as tarefas
-    const tarefasConcluidas = document.querySelectorAll(".tarefa.completed"); // Tarefas concluídas
-    const progresso = tarefas.length > 0 ? (tarefasConcluidas.length / tarefas.length) * 100 : 0;
-
-    const barraDeProgresso = document.getElementById("progress-bar");
-    barraDeProgresso.style.width = `${progresso}%`;
-
-    if (progresso === 100) {
-        alert("Parabéns! Você concluiu todas as tarefas! 🐾");
+    //barra de progresso
+    function atualizarBarraDeProgresso() {
+        const tarefas = document.querySelectorAll(".tarefa"); // Todas as tarefas
+        const tarefasConcluidas = document.querySelectorAll(".tarefa.completed"); // Tarefas concluídas
+        const progresso = tarefas.length > 0 ? (tarefasConcluidas.length / tarefas.length) * 100 : 0;
+    
+        const barraDeProgresso = document.getElementById("progress-bar");
+        barraDeProgresso.style.width = `${progresso}%`;
     }
-}
-
-// Atualiza a barra de progresso ao marcar/desmarcar uma tarefa
-function marcarConcluida(checkbox) {
-    const li = checkbox.closest("li");
-    if (checkbox.checked) {
-        li.classList.add("completed");
-    } else {
-        li.classList.remove("completed");
+    
+    // Atualiza a barra de progresso ao marcar/desmarcar uma tarefa
+    function marcarConcluida(checkbox) {
+        const li = checkbox.closest("li");
+        if (checkbox.checked) {
+            li.classList.add("completed");
+        } else {
+            li.classList.remove("completed");
+        }
+        atualizarBarraDeProgresso(); // Atualiza a barra aqui
     }
-    atualizarBarraDeProgresso(); // Atualiza a barra aqui
-}
-
-// Atualiza a barra ao adicionar ou remover uma tarefa
-function adicionarTarefa() {
-    const textoTarefa = tarefalista.value.trim();
-    if (textoTarefa) {
-        const li = document.createElement("li");
-        li.classList.add("tarefa");
-        li.innerHTML = `
-            <input type="checkbox" class="checkbox-tarefa">
-            <span>${textoTarefa}</span>
-            <div class="botoes">
-                <button class="botao-editar">✏️</button>
-                <button class="botao-remover">🗑️</button>
-            </div>
-        `;
-        li.querySelector(".checkbox-tarefa").addEventListener("change", (e) => marcarConcluida(e.target));
-        li.querySelector(".botao-remover").addEventListener("click", (e) => {
-            removerTarefa(e.target);
-            atualizarBarraDeProgresso();
-        });
-
-        listaTarefas.appendChild(li);
-        tarefalista.value = "";
-        atualizarBarraDeProgresso(); // Atualiza a barra após adicionar
-    } else {
-        alert("A tarefa não pode estar vazia!");
+    
+    // Atualiza a barra ao adicionar ou remover uma tarefa
+    function adicionarTarefa() {
+        const textoTarefa = tarefalista.value.trim();
+        if (textoTarefa) {
+            const li = document.createElement("li");
+            li.classList.add("tarefa");
+            li.innerHTML = `
+                <input type="checkbox" class="checkbox-tarefa">
+                <span>${textoTarefa}</span>
+                <div class="botoes">
+                    <button class="botao-editar">✏️</button>
+                    <button class="botao-remover">🗑️</button>
+                </div>
+            `;
+            li.querySelector(".checkbox-tarefa").addEventListener("change", (e) => marcarConcluida(e.target));
+            li.querySelector(".botao-remover").addEventListener("click", (e) => {
+                removerTarefa(e.target);
+                atualizarBarraDeProgresso();
+            });
+    
+            listaTarefas.appendChild(li);
+            tarefalista.value = "";
+            atualizarBarraDeProgresso(); // Atualiza a barra após adicionar
+        } else {
+            alert("A tarefa não pode estar vazia!");
+        }
     }
-}
+
 
