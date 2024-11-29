@@ -4,10 +4,12 @@
     margin: 0;
     box-sizing: border-box;
 }
-
+.a{
+    color: rgb(240, 136, 214);
+}
 /*paleta de cores*/
 :root{
-    --ciano:rgb(153, 255, 255);
+    --ciano:rgb(153, 255, 255);;
     --beige:antiquewhite;
     --vinho: rgb(131, 27, 89);
     --rosa-claro:rgb(253, 187, 226);

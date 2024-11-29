@@ -106,31 +106,31 @@ const modo = document.getElementById('claro');
 
 modo.addEventListener('click', mudarModo)
 
-function mudarModo{
+function mudarModo(){
     const cianoAtual = getComputedStyle(document.documentElement).getPropertyValue('--ciano').trim();
 
     if(cianoAtual === 'rgb(153, 255, 255)'){
-        document.documentElement.style.setProperty('--ciano', 'rgb( )');
-        document.documentElement.style.setProperty('--beige','rgb()');
-        document.documentElement.style.setProperty('--vinho','rgb()');
-        document.documentElement.style.setProperty('--rosa-claro','rgb()');
-        document.documentElement.style.setProperty('--rosa-medio','rgb()');
-        document.documentElement.style.setProperty('--branco','rgb()');
-        document.documentElement.style.setProperty('--lilas','rgb()');
-        document.documentElement.style.setProperty('--verde','rgb()');
-        document.documentElement.style.setProperty('--pink','rgb()');
-        document.documentElement.style.setProperty('--cinza','rgb()');
+        document.documentElement.style.setProperty('--ciano', 'rgb(126, 35, 122)');
+        document.documentElement.style.setProperty('--beige','rgb(77, 0, 88)');
+        document.documentElement.style.setProperty('--vinho','rgb(240, 212, 244)');
+        document.documentElement.style.setProperty('--rosa-claro',' rgb(206, 125, 217)');
+       // document.documentElement.style.setProperty('--rosa-medio','rgb(219, 107, 233)');
+        document.documentElement.style.setProperty('--branco','rgb(240, 136, 214)');
+       // document.documentElement.style.setProperty('--lilas','rgb(169, 0, 191)');
+        //document.documentElement.style.setProperty('--verde','rgb()');
+        //document.documentElement.style.setProperty('--pink','rgb()');
+        //document.documentElement.style.setProperty('--cinza','rgb()');
     } else {
         document.documentElement.style.setProperty('--ciano','rgb(153, 255, 255)');
         document.documentElement.style.setProperty('--beige','antiquewhite');
         document.documentElement.style.setProperty('--vinho','rgb(131, 27, 89)');
         document.documentElement.style.setProperty('--rosa-claro','rgb(253, 187, 226)');
-        document.documentElement.style.setProperty('--rosa-medio','rgb(255, 107, 193)');
+        //document.documentElement.style.setProperty('--rosa-medio','rgb(255, 107, 193)');
         document.documentElement.style.setProperty('--branco','white');
-        document.documentElement.style.setProperty('--lilas','#ff71ff');
-        document.documentElement.style.setProperty('--verde','#d3ffd3');
-        document.documentElement.style.setProperty('--pink','#d63384');
-        document.documentElement.style.setProperty('--cinza','#555');
+        //document.documentElement.style.setProperty('--lilas','#ff71ff');
+       // document.documentElement.style.setProperty('--verde','#d3ffd3');
+       // document.documentElement.style.setProperty('--pink','#d63384');
+       // document.documentElement.style.setProperty('--cinza','#555');
     }
 
 
